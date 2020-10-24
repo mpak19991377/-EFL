@@ -9,27 +9,27 @@
 			</div>
 		</section>
 		<!--/hero_in-->
-
 		<div class="container margin_60_35">
 			<div class="row">
 				<div class="col-lg-9">
+                        {% for article in Article %}
 					<article class="blog wow fadeIn">
 						<div class="row no-gutters">
 							<div class="col-lg-7">
 								<figure>
-									<a href="blog-post.html"><img src="http://via.placeholder.com/800x533/ccc/fff/blog-1.jpg" alt="">
+									<a href="blog-post.html"><img src="{{article.Image.url}}" alt="">
 										<div class="preview"><span>بیشتر بخوانید</span></div>
 									</a>
 								</figure>
 							</div>
 							<div class="col-lg-5">
 								<div class="post_info">
-									<small>20 Nov. 2017</small>
-									<h3><a href="blog-post.html">لورم ایپسوم متن ساختگی با  صنعت چاپ</a></h3>
-									<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+									<small>{{article.Published}}</small>
+									<h3><a href="blog-post.html">{{article.Title}}</a></h3>
+									<p>{{article.descraption | linebreaks | truncatewords:25}}</p>
 									<ul>
 										<li>
-											<div class="thumb"><img src="http://via.placeholder.com/80x80/ccc/fff/thumb_blog.jpg" alt=""></div> جاستین ترودو
+											<div class="thumb"><img src="http://via.placeholder.com/80x80/ccc/fff/thumb_blog.jpg" alt=""></div>{{article.Writer_Name}}
 										</li>
 										<li><i class="icon_comment_alt"></i> 20</li>
 									</ul>
@@ -38,85 +38,7 @@
 						</div>
 					</article>
 					<!-- /article -->
-
-					<article class="blog wow fadeIn">
-						<div class="row no-gutters">
-							<div class="col-lg-7">
-								<figure>
-									<a href="blog-post.html"><img src="http://via.placeholder.com/800x533/ccc/fff/blog-2.jpg" alt="">
-										<div class="preview"><span>بیشتر بخوانید</span></div>
-									</a>
-								</figure>
-							</div>
-							<div class="col-lg-5">
-								<div class="post_info">
-									<small>20 Nov. 2017</small>
-									<h3><a href="blog-post.html">لورم ایپسوم متن ساختگی با تولید  صنعت چاپ</a></h3>
-									<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
-									<ul>
-										<li>
-											<div class="thumb"><img src="http://via.placeholder.com/80x80/ccc/fff/thumb_blog.jpg" alt=""></div> Jessica Hoops
-										</li>
-										<li><i class="icon_comment_alt"></i> 20</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</article>
-					<!-- /article -->
-
-					<article class="blog wow fadeIn">
-						<div class="row no-gutters">
-							<div class="col-lg-7">
-								<figure>
-									<a href="blog-post.html"><img src="http://via.placeholder.com/800x533/ccc/fff/blog-3.jpg" alt="">
-										<div class="preview"><span>بیشتر بخوانید</span></div>
-									</a>
-								</figure>
-							</div>
-							<div class="col-lg-5">
-								<div class="post_info">
-									<small>20 Nov. 2017</small>
-									<h3><a href="blog-post.html">لورم ایپسوم متن ساختگی با صنعت چاپ</a></h3>
-									<p>odلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.</p>
-									<ul>
-										<li>
-											<div class="thumb"><img src="http://via.placeholder.com/80x80/ccc/fff/thumb_blog.jpg" alt=""></div> Jessica Hoops
-										</li>
-										<li><i class="icon_comment_alt"></i> 20</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</article>
-					<!-- /article -->
-
-					<article class="blog wow fadeIn">
-						<div class="row no-gutters">
-							<div class="col-lg-7">
-								<figure>
-									<a href="blog-post.html"><img src="http://via.placeholder.com/800x533/ccc/fff/blog-4.jpg" alt="">
-										<div class="preview"><span>بیشتر بخوانید</span></div>
-									</a>
-								</figure>
-							</div>
-							<div class="col-lg-5">
-								<div class="post_info">
-									<small>20 Nov. 2017</small>
-									<h3><a href="blog-post.html">لورم ایپسوم متن ساختگی با چاپ</a></h3>
-									<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.</p>
-									<ul>
-										<li>
-											<div class="thumb"><img src="http://via.placeholder.com/80x80/ccc/fff/thumb_blog.jpg" alt=""></div> جاستین تردو
-										</li>
-										<li><i class="icon_comment_alt"></i> 20</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</article>
-					<!-- /article -->
-
+                        {% endfor %}
 					<nav aria-label="...">
 						<ul class="pagination pagination-sm">
 							<li class="page-item disabled">
@@ -143,6 +65,7 @@
 							<button type="submit" id="submit" class="btn_1 rounded"> جستجو</button>
 						</form>
 					</div>
+					{% for article in Article %}
 					<!-- /widget -->
 					<div class="widget">
 						<div class="widget-title">
@@ -151,27 +74,13 @@
 						<ul class="comments-list">
 							<li>
 								<div class="alignleft">
-									<a href="#0"><img src="http://via.placeholder.com/150x150/ccc/fff/blog-5.jpg" alt=""></a>
+									<a href="#0"><img src="{{article.Image.url}}" alt=""></a>
 								</div>
-								<small>11.08.2016</small>
-								<h3><a href="#" title="">لورم ایپسوم متن ساختگی.....</a></h3>
-							</li>
-							<li>
-								<div class="alignleft">
-									<a href="#0"><img src="http://via.placeholder.com/150x150/ccc/fff/blog-6.jpg" alt=""></a>
-								</div>
-								<small>11.08.2016</small>
-								<h3><a href="#" title="">لورم ایپسوم متن ساختگی با پ...</a></h3>
-							</li>
-							<li>
-								<div class="alignleft">
-									<a href="#0"><img src="http://via.placeholder.com/150x150/ccc/fff/blog-4.jpg" alt=""></a>
-								</div>
-								<small>11.08.2016</small>
-								<h3><a href="#" title="">لورم ایپسوم متن ساختگی با تولیدپ...</a></h3>
-							</li>
+								<small>{{article.Published}}</small>
+								<h3><a href="#" title="">{{article.Title}}</a></h3>
 						</ul>
 					</div>
+					{% endfor %}
 					<!-- /widget -->
 					<div class="widget">
 						<div class="widget-title">
