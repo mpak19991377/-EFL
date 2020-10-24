@@ -1,5 +1,9 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
+from Blog.models import Article, Category
 
 # Create your views here.
 def Home(request):
-    return HttpResponse('salam be hame')
+    context = {
+        'Article' : Article.objects.filter(Status='P')
+    }
+    return render(request, 'blog/blog.html', context)
