@@ -3,7 +3,7 @@ from Blog.models import Article, Category
 
 # Register your models here.
 class Category_Admin(admin.ModelAdmin):
-    list_display = ('Position', 'Status', 'Published')
+    list_display = ('Title', 'Position',  'Status', 'Published')
     list_filter = (['Status'])
     search_fields = ('Title', 'Slug')
     prepopulated_fields = {'Slug':('Title',)}
