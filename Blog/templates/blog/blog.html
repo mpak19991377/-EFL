@@ -73,7 +73,7 @@
 							<h4>پست های اخیر</h4>
 						</div>
 						<ul class="comments-list">
-						    {% for article in Article %}      
+						    {% for article in Article_2 %}      
 							<li>
 								<div class="alignleft">
 									<a href="#0"><img src="{{article.Image.url}}" alt=""></a>
@@ -88,13 +88,10 @@
 					<div class="widget">
 						<div class="widget-title">
 							<h4>Blog Categories</h4>
-						</div>
-						<ul class="cats">
-							<li><a href="#">پذیرش <span>(12)</span></a></li>
-							<li><a href="#">اخبار <span>(21)</span></a></li>
-							<li><a href="#">رویدادها <span>(44)</span></a></li>
-							<li><a href="#">موضوعات  <span>(31)</span></a></li>
-						</ul>
+						</div> {% for cat in Category %}
+						<ul class="cats">                      
+							<li><a href="#">{{ cat.Title }} ({{cat.posts_count }})</span></a></li>
+						</ul>  {% endfor %}                                
 					</div>
 					<!-- /widget -->
 					<div class="widget">

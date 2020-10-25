@@ -6,11 +6,13 @@ from django.core.paginator import Paginator
 
 def Home(request):
     article_model = Article.objects.all()
-    paginator = Paginator(article_model, 1)
+    paginator = Paginator(article_model, 8)
     page_number = request.GET.get('page')
     page_object = paginator.get_page(page_number)
     context = {
         'Article' : Article.objects.filter(Status='P').order_by('-Published')[:8],
-        'page_obj' : page_object
+        'Article_2' : Article.objects.filter(Status='P').order_by('-Published')[:4],
+        'Category' : Category.objects.filter(Status= True),
+        'page_obj' : page_object,
     }
     return render(request, 'blog/blog.html', context)

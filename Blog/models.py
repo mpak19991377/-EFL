@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from datetime import datetime
 
 # Create your models here.
 class Category(models.Model):
@@ -15,6 +16,9 @@ class Category(models.Model):
         ordering = [
             'Position',
         ]
+    def posts_count(self):
+        return self.posts.filter(Status='P').count()
+
     def __str__(self):
         return self.Title    
 
@@ -30,13 +34,14 @@ class Article(models.Model):
     Image = models.ImageField(upload_to='photo')
     descraption = models.TextField()
     Writer_Name = models.CharField(max_length=50, verbose_name='writer name :')
-    Category = models.ManyToManyField(Category)
-    Published = models.DateField(default=timezone.now)
+    Category = models.ManyToManyField(Category, related_name='posts')
+    Published = models.DateTimeField(default=datetime.now)
     Status = models.CharField(max_length=1, choices=Status_Choices, default='P')
 
     class Meta:
         verbose_name = 'Article'
         verbose_name_plural = 'Article'
+        ordering = ['-Published']
 
     def __str__(self):
         return self.Title   
