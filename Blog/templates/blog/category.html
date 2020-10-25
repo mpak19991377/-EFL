@@ -12,7 +12,7 @@
 		<div class="container margin_60_35">
 			<div class="row">
 				<div class="col-lg-9">
-                        {% for article in page_obj %}
+                        {% for article in Category.posts.all %}
 					<article class="blog wow fadeIn">
 						<div class="row no-gutters">
 							<div class="col-lg-7">
@@ -73,7 +73,7 @@
 							<h4>پست های اخیر</h4>
 						</div>
 						<ul class="comments-list">
-						    {% for article in Article_2 %}      
+						    {% for article in Category.posts.all %}      
 							<li>
 								<div class="alignleft">
 									<a href="#0"><img src="{{article.Image.url}}" alt=""></a>
@@ -88,7 +88,7 @@
 					<div class="widget">
 						<div class="widget-title">
 							<h4>Blog Categories</h4>
-						</div> {% for cat in Category %}
+						</div> {% for cat in show_category %}
 						<ul class="cats">                      
 							<li><a href="{% url 'blog:Category_url' cat.Slug %}">{{ cat.Title }} ({{cat.posts_count }})</a></li>
 						</ul>  {% endfor %}                                
