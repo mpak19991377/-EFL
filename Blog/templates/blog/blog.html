@@ -12,7 +12,7 @@
 		<div class="container margin_60_35">
 			<div class="row">
 				<div class="col-lg-9">
-                        {% for article in Article %}
+                        {% for article in page_obj %}
 					<article class="blog wow fadeIn">
 						<div class="row no-gutters">
 							<div class="col-lg-7">
@@ -41,15 +41,17 @@
                         {% endfor %}
 					<nav aria-label="...">
 						<ul class="pagination pagination-sm">
-							<li class="page-item disabled">
-								<a class="page-link" href="#" tabindex="-1">قبلی</a>
+						    {% if page_obj.has_previous %}
+							<li class="page-item ">
+								<a class="page-link" href="?page={{page_obj.previous_page_number}}" tabindex="-1">قبلی</a>
 							</li>
-							<li class="page-item"><a class="page-link" href="#">1</a></li>
-							<li class="page-item"><a class="page-link" href="#">2</a></li>
-							<li class="page-item"><a class="page-link" href="#">3</a></li>
+							{% endif %}
+							<li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.number }}</a></li>
+							{% if page_obj.has_next %}
 							<li class="page-item">
-								<a class="page-link" href="#">بعدی</a>
+								<a class="page-link" href="?page={{ page_obj.next_page_number }}">بعدی</a>
 							</li>
+							{% endif %}
 						</ul>
 					</nav>
 					<!-- /pagination -->
@@ -65,22 +67,23 @@
 							<button type="submit" id="submit" class="btn_1 rounded"> جستجو</button>
 						</form>
 					</div>
-					{% for article in Article %}
 					<!-- /widget -->
 					<div class="widget">
 						<div class="widget-title">
 							<h4>پست های اخیر</h4>
 						</div>
 						<ul class="comments-list">
+						    {% for article in Article %}      
 							<li>
 								<div class="alignleft">
 									<a href="#0"><img src="{{article.Image.url}}" alt=""></a>
 								</div>
 								<small>{{article.Published}}</small>
 								<h3><a href="#" title="">{{article.Title}}</a></h3>
+							</li>
+							{% endfor %}	
 						</ul>
 					</div>
-					{% endfor %}
 					<!-- /widget -->
 					<div class="widget">
 						<div class="widget-title">
