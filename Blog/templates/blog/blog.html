@@ -17,7 +17,7 @@
 						<div class="row no-gutters">
 							<div class="col-lg-7">
 								<figure>
-									<a href="blog-post.html"><img src="{{article.Image.url}}" alt="">
+									<a href="{% url 'blog:Post_url' article.Slug %}"><img src="{{article.Image.url}}" alt="">
 										<div class="preview"><span>بیشتر بخوانید</span></div>
 									</a>
 								</figure>

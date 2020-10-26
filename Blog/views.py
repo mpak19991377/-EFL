@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 # Create your views here.
 
 def Home(request):
-    article_model = Article.objects.all()
+    article_model = Article.objects.filter(Status='P')
     paginator = Paginator(article_model, 8)
     page_number = request.GET.get('page')
     page_object = paginator.get_page(page_number)
@@ -18,12 +18,12 @@ def Home(request):
     return render(request, 'blog/blog.html', context)
 
 
-def category_of_site(request, Slug):
+def category_of_site(request, Category_Slug):
     article_model = Article.objects.all()
     paginator = Paginator(article_model, 8)
     page_number = request.GET.get('page')
     page_object = paginator.get_page(page_number)
-    category_obj = Category.objects.filter(Slug=Slug, Status=True).first()
+    category_obj = Category.objects.filter(Slug=Category_Slug, Status=True).first()
     show_category = Category.objects.filter(Status=True)
     context = {
         'Category' : category_obj,
@@ -31,4 +31,13 @@ def category_of_site(request, Slug):
         'show_category' : show_category
     }
     return render(request, 'blog/category.html', context)
+
+
+def Post(request, Post_Slug):
+    context = {
+        'Post' : get_object_or_404(Article, Slug=Post_Slug, Status='P'),
+        'Post_2' : Article.objects.filter(Status='P').order_by('-Published')[:4],
+        'Post_Category' : Category.objects.filter(Status=True)
+    }
+    return render(request, 'blog/post.html', context)
         

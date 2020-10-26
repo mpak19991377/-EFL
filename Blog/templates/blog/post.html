@@ -1,0 +1,204 @@
+{% extends 'blog/base.html' %}
+{% block main %}
+    <main>
+        <section id="hero_in" class="general">
+            <div class="wrapper">
+                <div class="container">
+                    <h1 class="fadeInUp"><span></span>بلاگ قالب</h1>
+                </div>
+            </div>
+        </section>
+        <!--/hero_in-->
+                    {% if  Post%}
+        <div class="container margin_60_35">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="bloglist singlepost">
+                        <p><img alt="" class="img-fluid"
+                                src="{{Post.Image.url}}"></p>
+                        <h1>{{Post.Title}}</h1>
+                        <div class="postmeta">
+                            <ul> {% for cat in Post_Category %}
+                                <li><a href="{% url 'blog:Category_url' cat.Slug %}"><i class="icon_folder-alt"></i>{{cat.Title}}</a></li>
+                                {% endfor %}
+                                <li><i class="icon_clock_alt"></i>{{Post.Published}}</li>
+                                <li><a href="#"><i class="icon_pencil-edit"></i>{{Post.Writer_Name}}</a></li>
+                                <li><i class="icon_comment_alt"></i> (14) کامنت ها</li>
+                            </ul>
+                        </div>
+                        <!-- /post meta -->
+                        <div class="post-content">
+                            <div class="dropcaps">
+                                <p>{{Post.descraption | linebreaks}}</p>
+                            </div>
+                            <!-- /post -->
+                            {% endif %}
+                        </div>
+                        <!-- /single-post -->
+
+                        <div id="comments">
+                            <h5>کامنت ها</h5>
+                            <ul>
+                                <li>
+                                    <div class="avatar">
+                                        <a href="#"><img src="http://via.placeholder.com/150x150/ccc/fff/avatar1.jpg"
+                                                         alt="">
+                                        </a>
+                                    </div>
+                                    <div class="comment_right clearfix">
+                                        <div class="comment_info">
+                                            به <a href="#">آنا</a><span>|</span>25/10/2019<span>|</span><a
+                                                href="#">پاسخ</a>
+                                        </div>
+                                        <p>
+                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپلورم ایپسوم متن
+                                            ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                                        </p>
+                                    </div>
+                                    <ul class="replied-to">
+                                        <li>
+                                            <div class="avatar">
+                                                <a href="#"><img
+                                                        src="http://via.placeholder.com/150x150/ccc/fff/avatar2.jpg"
+                                                        alt="">
+                                                </a>
+                                            </div>
+                                            <div class="comment_right clearfix">
+                                                <div class="comment_info">
+                                                    به <a href="#">آنا</a><span>|</span>25/10/2019<span>|</span><a
+                                                        href="#">پاسخ</a>
+                                                </div>
+                                                <p>
+                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپلورم ایپسوم
+                                                    متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                                                </p>
+                                                <p>
+                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپلورم ایپسوم
+                                                    متن ساختگی با تولید سادگی نامفهوم از صنعت چاپلورم ایپسوم متن ساختگی
+                                                    با تولید سادگی نامفهوم از صنعت چاپ
+                                                </p>
+                                            </div>
+                                            <ul class="replied-to">
+                                                <li>
+                                                    <div class="avatar">
+                                                        <a href="#"><img
+                                                                src="http://via.placeholder.com/150x150/ccc/fff/avatar2.jpg"
+                                                                alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="comment_right clearfix">
+                                                        <div class="comment_info">
+                                                            به <a href="#">آنا</a><span>|</span>25/10/2019<span>|</span><a
+                                                                href="#">پاسخ</a>
+                                                        </div>
+                                                        <p>
+                                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                                                            چاپلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                                                            چاپلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                                                        </p>
+                                                        <p>
+                                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                                                            چاپلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                                                            چاپلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="avatar">
+                                        <a href="#"><img src="http://via.placeholder.com/150x150/ccc/fff/avatar3.jpg"
+                                                         alt="">
+                                        </a>
+                                    </div>
+
+                                    <div class="comment_right clearfix">
+                                        <div class="comment_info">
+                                            به <a href="#">Anna Smith</a><span>|</span>25/10/2019<span>|</span><a
+                                                href="#">پاسخ</a>
+                                        </div>
+                                        <p>
+                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <hr>
+
+                        <h5>ترک کردن گفتگو</h5>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" name="name" id="name2" class="form-control" placeholder="نام">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="email" id="email2" class="form-control" placeholder="ایمیل">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="email" id="website3" class="form-control"
+                                       placeholder="وب سایت">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="comments" id="comments2" rows="6"
+                                          placeholder="پیام زیر"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" id="submit2" class="btn_1 rounded add_bottom_30"> ارسال کردن
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- /col -->
+
+                <aside class="col-lg-3">
+                    <div class="widget">
+                        <form>
+                            <div class="form-group">
+                                <input type="text" name="search" id="search" class="form-control"
+                                       placeholder="جستجو...">
+                            </div>
+                            <button type="submit" id="submit" class="btn_1 rounded"> جستجو</button>
+                        </form>
+                    </div>
+                    <!-- /widget -->
+                    <div class="widget">
+                        <div class="widget-title">
+                            <h4>پست های اخیر</h4>
+                        </div>
+                         {% for article in Post_2 %}
+                        <ul class="comments-list">
+                            <li>
+                                <div class="alignleft">
+                                    <a href="{% url 'blog:Post_url' article.Slug %}"><img src="{{ article.Image.url }}"
+                                                      alt=""></a>
+                                </div>
+                                <small>{{article.Published}}</small>
+                                <h3><a href="#" title="">{{article.Title}}</a></h3>
+                            </li>
+                        </ul>
+                         {% endfor %}
+                    </div>
+                    <!-- /widget -->
+                    <div class="widget">
+                        <div class="widget-title">
+                            <h4>Blog Categories</h4>
+                        </div>{% for cat_2 in Post_Category %}
+                        <ul class="cats">
+                            <li><a href="{% url 'blog:Category_url' cat_2.Slug %}">({{cat_2.posts_count}}) {{cat_2.Title}}</a></li>
+                        </ul>
+                        {% endfor %}
+                    </div>
+                    <!-- /widget -->
+                    <!-- /widget -->
+                </aside>
+                <!-- /aside -->
+
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+    </main>
+{% endblock main %}
